@@ -1,0 +1,65 @@
+{
+  "name": "PocketMoney",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest",
+    "android-bundle": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res",
+    "android-build": "cd android/;./gradlew assembleRelease;cd ..",
+    "ios-bundle": "react-native bundle --entry-file index.js --bundle-output ./ios/main.jsbundle --dev false --platform ios --assets-dest ./ios",
+    "ios-build": "npm run ios-archive;npm run ios-export",
+    "ios-xs": "react-native run-ios --simulator='iPhone XS'",
+    "ios-8": "react-native run-ios --simulator='iPhone 8'",
+    "ios-archive": "xcodebuild -workspace ios/pay7e.xcworkspace/ -scheme pay7e clean archive -configuration release -archivePath ios/build/pay7e.xcarchive",
+    "ios-export": "xcodebuild -exportArchive -archivePath ios/build/pay7e.xcarchive -exportOptionsPlist ios/ExportOptions.plist -exportPath ios/pay7e.xcipa",
+    "postinstall": "npx rn-nodeify --install \"crypto,stream,vm\" --hack"
+  },
+  "dependencies": {
+    "@react-native-community/async-storage": "^1.2.1",
+    "events": "^1.1.1",
+    "moment": "^2.23.0",
+    "native-base": "^2.12.1",
+    "react": "16.8.3",
+    "react-native": "0.59.3",
+    "react-native-crypto": "^2.1.2",
+    "react-native-firebase": "^5.2.3",
+    "react-native-gesture-handler": "^1.0.12",
+    "react-native-randombytes": "^3.5.2",
+    "react-navigation": "^3.0.8",
+    "readable-stream": "^1.0.33",
+    "realm": "^2.27.0",
+    "stream-browserify": "^1.0.0",
+    "vm-browserify": "0.0.4"
+  },
+  "devDependencies": {
+    "babel-jest": "23.6.0",
+    "jest": "23.6.0",
+    "metro-react-native-babel-preset": "0.48.5",
+    "react-test-renderer": "16.6.3",
+    "rn-nodeify": "^10.0.1"
+  },
+  "jest": {
+    "preset": "react-native"
+  },
+  "react-native": {
+    "crypto": "react-native-crypto",
+    "_stream_transform": "readable-stream/transform",
+    "_stream_readable": "readable-stream/readable",
+    "_stream_writable": "readable-stream/writable",
+    "_stream_duplex": "readable-stream/duplex",
+    "_stream_passthrough": "readable-stream/passthrough",
+    "stream": "stream-browserify",
+    "vm": "vm-browserify"
+  },
+  "browser": {
+    "crypto": "react-native-crypto",
+    "_stream_transform": "readable-stream/transform",
+    "_stream_readable": "readable-stream/readable",
+    "_stream_writable": "readable-stream/writable",
+    "_stream_duplex": "readable-stream/duplex",
+    "_stream_passthrough": "readable-stream/passthrough",
+    "stream": "stream-browserify",
+    "vm": "vm-browserify"
+  }
+}
