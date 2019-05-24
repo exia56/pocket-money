@@ -78,13 +78,11 @@ export default class CostsPage extends Component<Props, State> {
   onWillFocus = () => {
     const params = this.props.navigation.state.params;
     if (params && params.dateStamp) {
-      console.log(params.dateStamp)
       Promise.all([
         CostsModel.getThisDayCostsAsync(params.dateStamp),
         CostTypesModel.getCostTypeFromLocalAsync()
       ])
         .then(([costs, costTypes]) => {
-          console.log(costs, costTypes);
           const reverseTypes = CostType.genReverseMap(costTypes)
           this.setState({
             items: costs,

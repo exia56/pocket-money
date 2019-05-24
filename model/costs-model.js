@@ -1,4 +1,5 @@
-const CostsRespository = require('../respository/costs-respository');
+const FirestoreCostsRespository = require('../respository/firestore-costs-respository');
+const RealmCostsRespository = require('../respository/realm-costs-respository');
 const moment = require('moment');
 type DataModal = {
   id: String,
@@ -28,7 +29,7 @@ module.exports = {
       daysArray[idx] = this.createCellData(lastMonth.year(), lastMonth.month() + 1, lastMonth.date());
       lastMonth = lastMonth.add(1, "day");
     }
-    return CostsRespository.getDateArrayAsync(daysArray[0].dateStamp, daysArray[41].dateStamp)
+    return RealmCostsRespository.getDateArrayAsync(daysArray[0].dateStamp, daysArray[41].dateStamp)
       .then(datas => {
         let d = sumEachDayAmount(datas),
           monthly = 0,
@@ -44,7 +45,7 @@ module.exports = {
 
   },
   getThisDayCostsAsync: function (dateStamp) {
-    return CostsRespository.getThisDayCostsAsync(dateStamp);
+    return RealmCostsRespository.getThisDayCostsAsync(dateStamp);
   },
 
   createCellData: function (y, m, d) {
@@ -61,13 +62,26 @@ module.exports = {
   },
 
   insert: function (data) {
-    return CostsRespository.insert(data);
+    FirestoreCostsRespository.insert(data);
+    return RealmCostsRespository.insert(data);
+  },
+  insertMany: function (data) {
+    FirestoreCostsRespository.insertMany(data);
+    return RealmCostsRespository.insertMany(data);
   },
   update: function (data) {
-    return CostsRespository.update(data);
+    FirestoreCostsRespository.update(data);
+    return RealmCostsRespository.update(data);
   },
   delete: function (data) {
-    return CostsRespository.delete(data);
+    FirestoreCostsRespository.delete(data);
+    return RealmCostsRespository.delete(data);
+  },
+  syncCloud: function () {
+    return FirestoreCostsRespository.pull()
+      .then(datas => {
+        return RealmCostsRespository.insertMany(datas);
+      });
   }
 }
 

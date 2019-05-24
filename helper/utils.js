@@ -6,6 +6,6 @@ module.exports = {
     for (var i = 0; i < 20; i++)
       text.push(possible.charAt(Math.floor(Math.random() * possible.length)));
 
-    return text.join();
+    return text.join('');
   }
 }

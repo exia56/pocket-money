@@ -7,8 +7,6 @@ const DOCS_ID = {
   PASSWORD: "PASSWORD",
 }
 let USER_ID = "";
-// firebase.firestore().enablePersistence(true);
-// firebase.firestore().settings({ persistence: true });
 module.exports = {
   DOCS_ID,
   COLL_ID,
@@ -101,6 +99,18 @@ module.exports = {
   insert: function (collectionPath, data) {
     let collection = firebase.firestore().collection(collectionPath);
     return collection.add(data);
+  },
+  insertMany: function (collectionPath, datas) {
+    let batch = firebase.firestore().batch();
+    let collection = firebase.firestore().collection(collectionPath);
+    datas.forEach((data) => {
+      const id = data.id;
+      delete data.id;
+      collection.doc(id).get();;
+      const f = collection.doc(id);
+      batch.update(f, data);
+    })
+    return batch.commit();
   },
   update: function (documentPath, data) {
     console.log(documentPath)

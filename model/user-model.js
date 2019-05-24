@@ -1,5 +1,6 @@
 const crypto = require("crypto");
 const CacheUserRespository = require("../respository/cache-user-respository");
+const RealmCostRespository = require("../respository/realm-costs-respository");
 const Singleton = require("../respository/singleton");
 
 module.exports = {
@@ -25,6 +26,8 @@ module.exports = {
     return CacheUserRespository.getUserId();
   },
   removeUserIdAsync: function () {
+    Singleton.setUserIdAsync("");
+    RealmCostRespository.empty();
     return CacheUserRespository.removeUserId();
   },
 }

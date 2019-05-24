@@ -2,22 +2,37 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Header, Container, Body, Content, Icon, Fab } from 'native-base';
 import { NavigationEvents } from 'react-navigation';
-import moment from 'moment';
 
 import RouteName from "../constants/route-name";
 import AppStyle from '../constants/app-style';
+import StyleModal from '../components/style-modal';
 import SettingRow from '../components/setting-row';
 import UserModel from '../model/user-model';
-import Singleton from '../respository/singleton';
+import CostModel from '../model/costs-model';
 
 type Props = {
 
 };
+type State = {
+  modal: Boolean,
+  modalBtn: Boolean,
+  errorInfo: String,
+};
 
-export default class SettingPage extends Component<Props> {
+const key = {
+  sycn: "同步",
+  logout: "登出",
+}
+
+export default class SettingPage extends Component<Props, State> {
+  state = {
+    modal: false,
+    modalBtn: false,
+    errorInfo: '',
+  }
   render() {
-    const rows = ["登出"].map((v, idx) => {
-      return <SettingRow key={idx} idx={idx} caption={v} onPress={this.onRowPress} />
+    const rows = Object.entries(key).map(([k, v], idx) => {
+      return <SettingRow key={k} idx={v} caption={v} onPress={this.onRowPress} />
     })
     return (
       <Container>
@@ -38,14 +53,32 @@ export default class SettingPage extends Component<Props> {
         <Content contentContainerStyle={styles.container}>
           {rows}
         </Content>
+        <StyleModal
+          visible={this.state.modal}
+          caption={this.state.errorInfo}
+          spinnerVisible={!this.state.modalBtn}
+          btnVisible={this.state.modalBtn}
+          btnText={"確定"}
+          onButtonPress={() => this.setState({ modal: false })}
+          onReturnPress={() => this.setState({ modal: false })}
+          onOutsidePress={() => this.setState({ modal: false })} />
       </Container>
     )
   }
 
   onRowPress = (idx) => {
     switch (idx) {
-      case 0:
-        Singleton.setUserIdAsync("");
+      case key.sycn:
+        this.setState({ errorInfo: "", modal: true, modalBtn: false }, () => {
+          CostModel.syncCloud()
+            .then(res => {
+              this.setState({ modal: false });
+            }).catch(err => {
+              this.setState({ modalBtn: true, errorInfo: err });
+            })
+        });
+        break;
+      case key.logout:
         UserModel.removeUserIdAsync()
           .then(() => {
             this.toSplashPage();
@@ -55,6 +88,7 @@ export default class SettingPage extends Component<Props> {
   }
 
   onWillFocus = () => {
+    this.setState({ errorInfo: "", modal: false, modalBtn: false });
   }
 
   toSplashPage = () => {

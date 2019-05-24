@@ -144,7 +144,8 @@ export default class InsertOrUpdatePage extends Component<Props, State> {
                 if (Platform.OS === "android") {
                   this.setState({ detail: e.nativeEvent.text })
                 }
-              }} />
+              }}
+            />
           </View>
           {this.state.errorInfo ? <Text style={styles.errorInfo}>{this.state.errorInfo}</Text> : null}
         </Content>
@@ -188,7 +189,8 @@ export default class InsertOrUpdatePage extends Component<Props, State> {
     } else {
       promiseFlow = CostsModel.update(data);
     }
-    PromiseTimeout.wrapTimeout(promiseFlow)
+    // PromiseTimeout.wrapTimeout(promiseFlow)
+    promiseFlow
       .then(res => {
         this.toLastPage();
       }).catch(this.handleError);
@@ -197,7 +199,8 @@ export default class InsertOrUpdatePage extends Component<Props, State> {
   deleteCost = () => {
     const data = this.getCostData();
 
-    PromiseTimeout.wrapTimeout(CostsModel.delete(data))
+    // PromiseTimeout.wrapTimeout(CostsModel.delete(data))
+    CostsModel.delete(data)
       .then(res => this.toLastPage())
       .catch(this.handleError)
   }
@@ -209,18 +212,24 @@ export default class InsertOrUpdatePage extends Component<Props, State> {
       amount,
       detail } = this.state;
     const momentDate = moment(date, "YYYY-MM-DD");
-    const data = { id, type, amount, detail };
-    data.year = momentDate.year();
-    data.month = momentDate.month();
-    data.day = momentDate.date();
-    data.amount = +data.amount;
-    data.dateStamp = +momentDate.format("YYYYMMDD");
+    const data = {
+      id,
+      type,
+      detail,
+      year: momentDate.year(),
+      month: momentDate.month(),
+      day: momentDate.date(),
+      amount: +amount,
+      dateStamp: +momentDate.format("YYYYMMDD"),
+      timeStamp: Date.now(),
+    };
     return data;
   }
 
   onWillFocus = () => {
     let params = this.props.navigation.state.params;
     if (params && params.id) {
+      params = JSON.parse(JSON.stringify(params));
       params.amount = `${params.amount}`;
       this.setState(params);
     }
@@ -232,7 +241,7 @@ export default class InsertOrUpdatePage extends Component<Props, State> {
         .then(res => {
           this.setState({ costTypes: res, modal: false });
         })
-    })
+    });
   }
 
   handleError = (err) => {

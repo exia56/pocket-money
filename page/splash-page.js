@@ -47,6 +47,7 @@ export default class SplashPage extends Component<Props, State> {
   onWillFocus = () => {
     UserModel.getUserIdAsync()
       .then(userId => {
+        console.log('userId', userId);
         if (userId) {
           return Singleton.setUserIdAsync(userId);
         }
