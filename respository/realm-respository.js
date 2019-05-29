@@ -43,9 +43,11 @@ module.exports = {
     return new Promise((resolve, reject) => {
       try {
         let costs = realm.objects(collection);
+        console.log('all', costs.length);
         if (filter)
           costs = filter(costs);
-        costs = Object.values(costs);
+        costs = [...costs.values()];
+        console.log("result", costs);
         resolve(costs);
       } catch (e) {
         reject(e);
@@ -56,6 +58,7 @@ module.exports = {
     return new Promise((resolve, reject) => {
       try {
         let costs = filter(realm.objectForPrimaryKey(collection, id));
+        console.log(costs);
         resolve(JSON.parse(JSON.stringify(costs)));
       } catch (e) {
         reject(e);
@@ -63,6 +66,7 @@ module.exports = {
     });
   },
   insert: function (collection, data) {
+    console.log('123123123', data);
     if (!data.id)
       data.id = utils.randomString();
     return new Promise((resolve, reject) => {
@@ -71,6 +75,7 @@ module.exports = {
         realm.write(() => {
           cost = realm.create(collection, data);
         });
+        console.log(cost);
         resolve(cost);
       } catch (e) {
         reject(e);
@@ -80,6 +85,7 @@ module.exports = {
   insertMany: function (collection, datas) {
     return new Promise((resolve, reject) => {
       try {
+        console.log(realm.objects(collection).length);
         realm.write(() => {
           datas.forEach((data) => {
             if (!data.id)
@@ -90,7 +96,7 @@ module.exports = {
             realm.create(collection, data, true);
           })
         });
-
+        console.log(realm.objects(collection).length);
         resolve();
       } catch (e) {
         reject(e);
@@ -104,6 +110,7 @@ module.exports = {
         realm.write(() => {
           cost = realm.create(collection, data, true);
         });
+        console.log(cost);
         resolve(cost);
       } catch (e) {
         reject(e);

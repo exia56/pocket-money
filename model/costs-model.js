@@ -29,6 +29,7 @@ module.exports = {
       daysArray[idx] = this.createCellData(lastMonth.year(), lastMonth.month() + 1, lastMonth.date());
       lastMonth = lastMonth.add(1, "day");
     }
+    // return FirestoreCostsRespository.getDateArrayAsync(daysArray[0].dateStamp, daysArray[41].dateStamp)
     return RealmCostsRespository.getDateArrayAsync(daysArray[0].dateStamp, daysArray[41].dateStamp)
       .then(datas => {
         let d = sumEachDayAmount(datas),
@@ -45,7 +46,12 @@ module.exports = {
 
   },
   getThisDayCostsAsync: function (dateStamp) {
+    // return 
+    FirestoreCostsRespository.getThisDayCostsAsync(dateStamp);
     return RealmCostsRespository.getThisDayCostsAsync(dateStamp);
+  },
+  queryDetails: function (str, page) {
+    return RealmCostsRespository.queryDetails(str, page);
   },
 
   createCellData: function (y, m, d) {
@@ -62,24 +68,29 @@ module.exports = {
   },
 
   insert: function (data) {
+    // return 
     FirestoreCostsRespository.insert(data);
     return RealmCostsRespository.insert(data);
   },
   insertMany: function (data) {
+    // return 
     FirestoreCostsRespository.insertMany(data);
     return RealmCostsRespository.insertMany(data);
   },
   update: function (data) {
+    // return 
     FirestoreCostsRespository.update(data);
     return RealmCostsRespository.update(data);
   },
   delete: function (data) {
+    // return 
     FirestoreCostsRespository.delete(data);
     return RealmCostsRespository.delete(data);
   },
   syncCloud: function () {
     return FirestoreCostsRespository.pull()
       .then(datas => {
+        console.log(datas.length);
         return RealmCostsRespository.insertMany(datas);
       });
   }

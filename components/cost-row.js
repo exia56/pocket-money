@@ -14,8 +14,9 @@ type Props = {
     month: Number,
     type: Number,
     year: Number,
-    typeStr: String
+    typeStr: String,
   },
+  showDate: Boolean,
   onPress: (item) => {}
 };
 type State = {
@@ -24,15 +25,18 @@ export default class CostRow extends Component<Props, State> {
   state = {
   }
   render() {
-
+    const { amount, day, detail, month, year, typeStr } = this.props.item;
     return (
       <TouchableOpacity style={styles.container} onPress={this.onPress}>
         <View style={styles.left}>
-          <Text style={styles.type}>{this.props.item.typeStr}</Text>
-          <Text style={styles.detail}>{this.props.item.detail}</Text>
+          <Text style={styles.type}>{typeStr}</Text>
+          <Text style={styles.detail}>{detail}</Text>
         </View>
         <View style={styles.right}>
-          <Text style={styles.amount}>{this.props.item.amount}</Text>
+          <Text style={styles.amount}>{amount}</Text>
+          {this.props.showDate ?
+            <Text style={styles.date}>{`${year}/${month}/${day}`}</Text> :
+            undefined}
         </View>
       </TouchableOpacity>
     );
@@ -69,5 +73,9 @@ const styles = StyleSheet.create({
   amount: {
     fontSize: AppStyle.mainFontSize,
     color: AppStyle.accentColor
+  },
+  date: {
+    fontSize: AppStyle.subFontSize - 3,
+    color: AppStyle.subFontColor
   }
 })
