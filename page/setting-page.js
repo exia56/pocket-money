@@ -20,6 +20,7 @@ type State = {
 };
 
 const key = {
+  search: "搜尋",
   sycn: "同步",
   logout: "登出",
 }
@@ -68,6 +69,9 @@ export default class SettingPage extends Component<Props, State> {
 
   onRowPress = (idx) => {
     switch (idx) {
+      case key.search:
+        this.props.navigation.navigate(RouteName.QueryPage);
+        break;
       case key.sycn:
         this.setState({ errorInfo: "", modal: true, modalBtn: false }, () => {
           CostModel.syncCloud()

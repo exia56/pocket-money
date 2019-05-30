@@ -2,6 +2,7 @@ const LocalStoreRespository = require('./realm-respository');
 const {
   COLL_COST,
 } = LocalStoreRespository;
+const pageLimit = 20;
 
 module.exports = {
   pull: function () {
@@ -16,6 +17,13 @@ module.exports = {
   getThisDayCostsAsync: function (dateStamp) {
     let filter = (collection) => {
       return collection.filtered(`dateStamp = ${dateStamp}`);
+    };
+    return LocalStoreRespository.querys(COLL_COST, filter);
+  },
+  queryDetails: function (str, page) {
+    let filter = (collection) => {
+      const start = page * pageLimit;
+      return collection.filtered(`detail CONTAINS '${str}'`).slice(start, start + pageLimit);
     };
     return LocalStoreRespository.querys(COLL_COST, filter);
   },

@@ -8,6 +8,7 @@ import CostsPage from './page/costs-page';
 import KeyPairPage from './page/key-pair-page';
 import SplashPage from './page/splash-page';
 import SettingPage from './page/setting-page';
+import QueryPage from './page/query-page';
 
 const NormalRoute = {},
   SwitchRoute = {};
@@ -22,6 +23,9 @@ NormalRoute[RouteName.CostsPage] = {
 }
 NormalRoute[RouteName.SettingPage] = {
   screen: SettingPage
+}
+NormalRoute[RouteName.QueryPage] = {
+  screen: QueryPage
 }
 
 

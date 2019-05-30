@@ -45,7 +45,8 @@ module.exports = {
         let costs = realm.objects(collection);
         if (filter)
           costs = filter(costs);
-        costs = Object.values(costs);
+        costs = [...costs.values()];
+        console.log("result", costs);
         resolve(costs);
       } catch (e) {
         reject(e);
@@ -80,6 +81,7 @@ module.exports = {
   insertMany: function (collection, datas) {
     return new Promise((resolve, reject) => {
       try {
+        console.log(realm.objects(collection).length);
         realm.write(() => {
           datas.forEach((data) => {
             if (!data.id)
@@ -90,7 +92,6 @@ module.exports = {
             realm.create(collection, data, true);
           })
         });
-
         resolve();
       } catch (e) {
         reject(e);

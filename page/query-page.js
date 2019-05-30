@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { Header, Container, Body, Content, Icon, Fab } from 'native-base';
+import { StyleSheet, Text, TouchableOpacity, View, TextInput, Platform } from 'react-native';
+import { Header, Container, Content, Icon, Fab } from 'native-base';
 import { NavigationEvents } from 'react-navigation';
 import moment from 'moment';
 
@@ -10,30 +10,34 @@ import CostTypesModel from '../model/cost-types-model';
 import CostType from '../constants/cost-type';
 import AppStyle from '../constants/app-style';
 import CostRow from '../components/cost-row';
+import PositiveButton from '../components/positive-button';
 
 type Props = {
 
 };
 type State = {
-  title: String,
   items: Array,
-  dateStamp: Number,
   costTypes: Object,
   reverseTypes: Object,
+  focusAt: Number,
+  searchText: String,
+  page: Number
 };
-export default class CostsPage extends Component<Props, State> {
+
+export default class QueryPage extends Component<Props, State> {
   state = {
-    title: "讀取中",
     items: [],
-    dateStamp: 0,
     costTypes: {},
     reverseTypes: {},
+    focusAt: 0,
+    searchText: '',
+    page: 0,
   }
   render() {
     const items = this.state.items.map((v, idx) => {
       v.typeStr = this.state.reverseTypes[v.type];
-      return <CostRow key={idx} item={v} onPress={this.onRowPress} />
-    })
+      return <CostRow key={idx} showDate={true} item={v} onPress={this.onRowPress} />
+    });
     return (
       <Container>
         <NavigationEvents
@@ -51,24 +55,47 @@ export default class CostsPage extends Component<Props, State> {
           <View style={styles.headerLeft} />
         </Header>
         <Content style={{ padding: 10 }} contentContainerStyle={styles.container}>
+          <View style={styles.row}>
+            <TextInput
+              style={StyleSheet.flatten([styles.valueWrapper, this.state.focusAt === 1 ? styles.focus : {}])}
+              onBlur={() => this.setState({ focusAt: 0 })}
+              onFocus={() => this.setState({ focusAt: 1 })}
+              numberOfLines={1}
+              value={this.state.searchText}
+              onChangeText={(text) => this.setState({ searchText: text })}
+              onChange={(e) => {
+                if (Platform.OS === "android") {
+                  this.setState({ searchText: e.nativeEvent.text })
+                }
+              }} />
+            <PositiveButton
+              style={styles.btn}
+              caption="搜尋"
+              onPress={this.onSearchPress}
+            />
+          </View>
           {items}
         </Content>
-        <Fab
-          style={styles.fabAdd}
-          position={"bottomRight"}
-          onPress={this.toInsertPage}>
-          <Icon style={styles.fabAddContent} name={"add"} />
-        </Fab>
       </Container>
     )
   }
 
-  onRowPress = (item) => {
-    this.props.navigation.navigate(RouteName.InsertOrUpdatePage, item);
+  search = (searchText, page) => {
+    return CostsModel.queryDetails(searchText, page);
   }
 
-  dateStampFormat = (dateStamp) => {
-    return moment(dateStamp, "YYYYMMDD").format("YYYY-MM-DD");
+  onSearchPress = () => {
+    this.search(this.state.searchText, 0)
+      .then((items) => {
+        this.setState({
+          items,
+          page: 0
+        });
+      });
+  }
+
+  onRowPress = (item) => {
+    this.props.navigation.navigate(RouteName.InsertOrUpdatePage, item);
   }
 
   toInsertPage = () => {
@@ -76,26 +103,14 @@ export default class CostsPage extends Component<Props, State> {
   }
 
   onWillFocus = () => {
-    const params = this.props.navigation.state.params;
-    if (params && params.dateStamp) {
-      Promise.all([
-        CostsModel.getThisDayCostsAsync(params.dateStamp),
-        CostTypesModel.getCostTypeFromLocalAsync()
-      ])
-        .then(([costs, costTypes]) => {
-          const reverseTypes = CostType.genReverseMap(costTypes)
-          console.log(costs);
-          this.setState({
-            items: costs,
-            costTypes,
-            reverseTypes,
-            dateStamp: params.dateStamp,
-            title: this.dateStampFormat(params.dateStamp)
-          });
+    CostTypesModel.getCostTypeFromLocalAsync()
+      .then((costTypes) => {
+        const reverseTypes = CostType.genReverseMap(costTypes)
+        this.setState({
+          costTypes,
+          reverseTypes,
         });
-    } else {
-      this.toLastPage();
-    }
+      });
   }
 
   toLastPage = () => {
@@ -131,35 +146,17 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingHorizontal: 10
   },
-  arrow: {
-    textAlign: "center",
-    alignSelf: "center",
-    fontSize: 40,
-    color: AppStyle.accentColor,
-  },
-  monthTitle: {
+  valueWrapper: {
     flex: 3,
-    textAlign: "center",
-    fontSize: AppStyle.headerFontSize + 6
+    padding: 10,
+    fontSize: AppStyle.mainFontSize,
+    borderColor: "#333333",
+    borderWidth: 1,
+    borderRadius: 4,
+    marginRight: 10
   },
-  monthlySection: {
-    padding: 5,
-    paddingHorizontal: 10,
-    alignItems: "flex-start"
-  },
-  monthlyTitle: {
-    fontSize: AppStyle.subFontSize,
-    color: AppStyle.mainColor
-  },
-  monthlyCost: {
-    alignSelf: "flex-end",
-    fontSize: AppStyle.headerFontSize
-  },
-  fabAdd: {
-    backgroundColor: AppStyle.accentColor,
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  fabAddContent: {
+  btn: {
+    color: AppStyle.accentFontColor,
+    fontSize: AppStyle.mainFontSize
   }
 })

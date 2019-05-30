@@ -6,5 +6,6 @@ module.exports = {
   MainPage: "MainPage",
   InsertOrUpdatePage: "InsertOrUpdatePage",
   CostsPage: "CostsPage",
-  SettingPage: "SettingPage"
+  SettingPage: "SettingPage",
+  QueryPage: "QueryPage"
 }

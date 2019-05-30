@@ -17,13 +17,15 @@ type Props = {
 type State = {
   date: Moment,
   dayArray: Array,
-  monthly: Number
+  monthly: Number,
+  fabActive: Boolean
 };
 export default class MainPage extends Component<Props, State> {
   state = {
     date: moment(),
     dayArray: Array.apply(null, { length: 42 }).map((v, idx) => CostsModel.createCellData(idx, 0, 0)),
-    monthly: 0
+    monthly: 0,
+    fabActive: false
   }
   render() {
     return (
@@ -70,15 +72,27 @@ export default class MainPage extends Component<Props, State> {
           </View>
           <Separator />
         </Content>
-        <Fab
-          style={styles.fabAdd}
-          position={"bottomRight"}
+        <TouchableOpacity
+          active={this.state.fabActive}
+          onLongPress={this.fabActive}
           onPress={this.toInsertPage}>
-          <Icon style={styles.fabAddContent} name={"add"} />
-        </Fab>
+          <Fab
+            active={this.state.fabActive}
+            style={styles.fabAdd}
+            position={"bottomRight"}
+          >
+            <Icon style={styles.fabAddContent} name={"add"} />
+            <Button
+              style={{ backgroundColor: '#34A34F' }}
+              onPress={this.toQueryPage}>
+              <Icon name="search" />
+            </Button>
+          </Fab>
+        </TouchableOpacity>
       </Container>
     )
   }
+
   thisMonth = () => {
     this.generateDayArray(moment());
   }
@@ -97,12 +111,22 @@ export default class MainPage extends Component<Props, State> {
         this.setState({ dayArray: daysArray, date, monthly });
       }).catch(res => { console.log(res) });
   }
+
   onCellPress = (item) => {
     this.props.navigation.navigate(RouteName.CostsPage, { dateStamp: item.dateStamp })
   }
 
+  fabActive = () => this.setState({ fabActive: true });
+  fabDeactive = () => this.setState({ fabActive: false });
+
   toInsertPage = () => {
+    this.fabDeactive();
     this.props.navigation.navigate(RouteName.InsertOrUpdatePage);
+  }
+
+  toQueryPage = () => {
+    this.fabDeactive();
+    this.props.navigation.navigate(RouteName.QueryPage);
   }
 
   toSettingPage = () => {
