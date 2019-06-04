@@ -34,7 +34,7 @@ module.exports = {
         data.id = doc.id;
         return data;
       } else
-        return Promise.reject(new Error("data not found!"));
+        return Promise.reject(new Error(`user ${USER_ID} data id ${objId} not found!`));
     });
   },
   insertCost: function (data, USER_ID) {
@@ -61,7 +61,7 @@ module.exports = {
       .then(doc => {
         if (doc.exists)
           return doc.data();
-        else Promise.reject(new Error("data not found!"));
+        else Promise.reject(new Error(`user ${USER_ID} cost type not found!`));
       });
   },
 
@@ -92,13 +92,18 @@ module.exports = {
           data.path = doc.ref.path;
           return data;
         } else
-          return Promise.reject(new Error("data not found!"));
+          return Promise.reject(new Error(`data path ${documentPath} not found!`));
       })
 
   },
   insert: function (collectionPath, data) {
     let collection = firebase.firestore().collection(collectionPath);
-    return collection.add(data);
+    if (data.id) {
+      const { id, ...d } = data;
+      console.log(data, collectionPath);
+      return collection.doc(id).set(d);
+    } else
+      return collection.add(data);
   },
   insertMany: function (collectionPath, datas) {
     let batch = firebase.firestore().batch();
@@ -113,9 +118,7 @@ module.exports = {
     return batch.commit();
   },
   update: function (documentPath, data) {
-    console.log(documentPath)
     let doc = firebase.firestore().doc(documentPath);
-    console.log("doc", doc.path);
     return doc.set(data).then(() => data);
   },
   delete: function (documentPath) {

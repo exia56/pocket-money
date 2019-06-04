@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text } from 'react-native';
-import { Header, Container, Content, Spinner } from 'native-base';
+import { Container, Content, Spinner } from 'native-base';
 import { NavigationEvents } from 'react-navigation';
 
 import RouteName from "../constants/route-name";
-import Singleton from "../respository/singleton";
 import AppStyle from '../constants/app-style';
+import Header from '../components/my-header';
 
+import Singleton from "../respository/singleton";
 import UserModel from '../model/user-model';
 
 type Props = {
@@ -24,11 +25,7 @@ export default class SplashPage extends Component<Props, State> {
         <NavigationEvents
           onWillFocus={this.onWillFocus} />
         <Header
-          iosBarStyle={"light-content"}
-          androidStatusBarColor={AppStyle.mainColor}
-          style={styles.header}>
-          <Text style={styles.headerText}>檢查使用者</Text>
-        </Header>
+          body={<Text style={styles.headerText}>檢查使用者</Text>} />
         <Content contentContainerStyle={styles.container}>
           <Spinner size={"large"} color={AppStyle.mainColor} />
         </Content>
@@ -65,17 +62,9 @@ export default class SplashPage extends Component<Props, State> {
 }
 const styles = StyleSheet.create({
   a: {},
-  header: {
-    backgroundColor: AppStyle.mainColor,
-    justifyContent: "center",
-  },
   headerText: {
     fontSize: AppStyle.headerFontSize,
-    flex: 1,
-    textAlign: "center",
     color: AppStyle.accentFontColor,
-    alignItems: 'center',
-    alignSelf: 'center',
   },
   container: {
     flex: 1,

@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -13,6 +14,7 @@
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
 		00E356F31AD99517003FC87E /* PocketMoneyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* PocketMoneyTests.m */; };
 		0224B0D6AF50407FBC36D0CB /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 845009F2EA804780940CDAB9 /* Octicons.ttf */; };
+		0BD0E34FD7E646619178ECD5 /* libRealmReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 169842A82ACD4D65AFDBE9D0 /* libRealmReact.a */; };
 		11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
@@ -42,28 +44,24 @@
 		3DEE197C805F42FDA51D6051 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 54E0E06672E640DB89B9940E /* Ionicons.ttf */; };
 		3F1F2585BBC7405D950F683C /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89432D0D2F364EA18A8BF1BF /* Foundation.ttf */; };
 		4482053D867844D5A222B35D /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C485655AC27147D9877A5B9F /* MaterialCommunityIcons.ttf */; };
-		48E38A136B5E439E8357894F /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8B343AE4B07428BAA160230 /* libRNFirebase.a */; };
 		4CAA69DF9516F92364396124 /* libPods-PocketMoney.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F93640E06D49589507557270 /* libPods-PocketMoney.a */; };
 		4CE27F49A5584CBC9D2ACFA9 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D7D1D2218ADA430A8F47EA9E /* Feather.ttf */; };
 		54734B9AA9C40F0C921DC8B0 /* libPods-PocketMoney-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 659C4A694C12B3E33502F58F /* libPods-PocketMoney-tvOS.a */; };
-		697FB39380B641B78EC2230C /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C2D42BE661C480F8BA416A4 /* libc++.tbd */; };
-		76A12B09C0CF4EADA5CA2693 /* libRealmReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6B62DA1CDF4C2B832C92AC /* libRealmReact.a */; };
+		6784370E2372490C858FCC5C /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 479CD033D9B34507B90FEE91 /* libRNFirebase.a */; };
 		7950710FE7F84E5FBFA056E0 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51FB42317CE948E98E038E22 /* Entypo.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		840939A4C6D245B8B42BFCB5 /* libTcpSockets.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D4D7895AA1E42A59FCC109D /* libTcpSockets.a */; };
 		8609209C44F649D1BA840507 /* rubicon-icon-font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FA41460537D4C3FA03BE31E /* rubicon-icon-font.ttf */; };
-		989FDA52D84E41978033B4F5 /* libRNOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB3B0C16FBD645C4B0336ED2 /* libRNOS.a */; };
+		878087D5A06F4FAA800DF9DC /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 08DF2E2772974608A2DA4632 /* libz.tbd */; };
 		9D1116390A4D61324B1DAEF4 /* libPods-PocketMoneyTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2099F782D89B98608AF01 /* libPods-PocketMoneyTests.a */; };
 		A04552DD1421494D9220356B /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7D2C26E3A2E94A6489F41DE6 /* FontAwesome5_Regular.ttf */; };
 		A0A25D55223A582300D7FA56 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A0A25D54223A582300D7FA56 /* GoogleService-Info.plist */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
+		B49C600499B54847983BBF03 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F179ACB20B64D21BFB29F42 /* libc++.tbd */; };
 		B5528C77CC7347D2A516267E /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D14A029D354946078F6E88E1 /* FontAwesome5_Solid.ttf */; };
 		B58527ABCB694EFB9601025C /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A2CF7EF46BF94C19B59940B8 /* FontAwesome.ttf */; };
 		C7A3D3D09DCF4502B4895A7F /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D9691ECE1B7F45E39DB35091 /* FontAwesome5_Brands.ttf */; };
-		D023C914EDAA4B4C88045174 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F4736A2FBE7C4D35A2756005 /* libz.tbd */; };
 		E4C78D98067B492CABB5D81B /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 424901BC99FB4187BDCEAE82 /* EvilIcons.ttf */; };
 		E6CCC6BEE20548398DF64541 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4646F2166EFB4E0B9B79EC02 /* AntDesign.ttf */; };
-		EF378E3AC5A54D978E67DD38 /* libUdpSockets.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F8DC76CE9E944F093A87FFB /* libUdpSockets.a */; };
 		F3F40BF655144D66AC2E779B /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 744A4A51D5A845248928FA17 /* Roboto.ttf */; };
 		F5223BEAEBC0484E8A9BB803 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E434C1C21164472495FDFDF5 /* SimpleLineIcons.ttf */; };
 		FA248FA4318546DCB2696E06 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FFB8727D755A4BA99BD5BC69 /* Zocial.ttf */; };
@@ -336,20 +334,6 @@
 			remoteGlobalIDString = ED296FEE214C9CF800B7C4FE;
 			remoteInfo = "jsiexecutor-tvOS";
 		};
-		A09065212291C13D000DD9FF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0FA05DB161174435B0D87088 /* RealmReact.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F60690131CA2766F0003FB26;
-			remoteInfo = RealmReact;
-		};
-		A0A25D52223A4FA800D7FA56 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DC5A3A5F9D7A427593E29AF6 /* RNFirebase.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 134814201AA4EA6300B7C361;
-			remoteInfo = RNFirebase;
-		};
 		ADBDB9261DFEBF0700ED6528 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */;
@@ -370,7 +354,7 @@
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* PocketMoneyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PocketMoneyTests.m; sourceTree = "<group>"; };
 		064AED3FC5D2108F273A9C9C /* Pods-PocketMoneyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketMoneyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PocketMoneyTests/Pods-PocketMoneyTests.release.xcconfig"; sourceTree = "<group>"; };
-		0FA05DB161174435B0D87088 /* RealmReact.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RealmReact.xcodeproj; path = "../node_modules/realm/react-native/ios/RealmReact.xcodeproj"; sourceTree = "<group>"; };
+		08DF2E2772974608A2DA4632 /* libz.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		0FDB775173A94D369E535D68 /* Roboto_medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto_medium.ttf; path = "../node_modules/native-base/Fonts/Roboto_medium.ttf"; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
@@ -382,50 +366,44 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = PocketMoney/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = PocketMoney/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		169842A82ACD4D65AFDBE9D0 /* libRealmReact.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = archive.ar; name = libRealmReact.a; path = libRealmReact.a; sourceTree = "<group>"; };
 		260B2959459DF4903CC8E329 /* libPods-PocketMoney-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PocketMoney-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C929E3822ED4FC6B22F5E3D /* RNFirebase.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFirebase.xcodeproj; path = "../node_modules/react-native-firebase/ios/RNFirebase.xcodeproj"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* PocketMoney-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PocketMoney-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* PocketMoney-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PocketMoney-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		362E1E993B5B405AA03E3BDC /* TcpSockets.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = TcpSockets.xcodeproj; path = "../node_modules/react-native-tcp/ios/TcpSockets.xcodeproj"; sourceTree = "<group>"; };
-		3C2D42BE661C480F8BA416A4 /* libc++.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		3FA41460537D4C3FA03BE31E /* rubicon-icon-font.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "rubicon-icon-font.ttf"; path = "../node_modules/native-base/Fonts/rubicon-icon-font.ttf"; sourceTree = "<group>"; };
 		424901BC99FB4187BDCEAE82 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/native-base/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		4646F2166EFB4E0B9B79EC02 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/native-base/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
-		4D4D7895AA1E42A59FCC109D /* libTcpSockets.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libTcpSockets.a; sourceTree = "<group>"; };
+		479CD033D9B34507B90FEE91 /* libRNFirebase.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFirebase.a; sourceTree = "<group>"; };
 		4ED76D57D7B0FB300C93787B /* Pods-PocketMoney-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketMoney-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-PocketMoney-tvOS/Pods-PocketMoney-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		51FB42317CE948E98E038E22 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/native-base/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
-		52830F2AB22D48EDA9AD4E10 /* RNOS.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNOS.xcodeproj; path = "../node_modules/react-native-os/ios/RNOS.xcodeproj"; sourceTree = "<group>"; };
 		54E0E06672E640DB89B9940E /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/native-base/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		6374DCA95C5FE15A0AF27BED /* Pods-PocketMoney-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketMoney-tvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PocketMoney-tvOSTests/Pods-PocketMoney-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		659C4A694C12B3E33502F58F /* libPods-PocketMoney-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PocketMoney-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DD31A3ECE46D789AF726525 /* Pods-PocketMoney-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketMoney-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PocketMoney-tvOS/Pods-PocketMoney-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		6E6B62DA1CDF4C2B832C92AC /* libRealmReact.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRealmReact.a; sourceTree = "<group>"; };
 		744A4A51D5A845248928FA17 /* Roboto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto.ttf; path = "../node_modules/native-base/Fonts/Roboto.ttf"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		7A714CA3839DCF36741379C6 /* Pods-PocketMoneyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketMoneyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PocketMoneyTests/Pods-PocketMoneyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7CA9004114C80542A8C3DC45 /* Pods-PocketMoney.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketMoney.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PocketMoney/Pods-PocketMoney.debug.xcconfig"; sourceTree = "<group>"; };
 		7D2C26E3A2E94A6489F41DE6 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/native-base/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
+		804A76398E9B4691A4A8AB52 /* RealmReact.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RealmReact.xcodeproj; path = "../node_modules/realm/react-native/ios/RealmReact.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		845009F2EA804780940CDAB9 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/native-base/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		89432D0D2F364EA18A8BF1BF /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/native-base/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		8DC2099F782D89B98608AF01 /* libPods-PocketMoneyTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PocketMoneyTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8F8DC76CE9E944F093A87FFB /* libUdpSockets.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libUdpSockets.a; sourceTree = "<group>"; };
+		8F179ACB20B64D21BFB29F42 /* libc++.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		95630FD401A648CB8FD8EC0B /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/native-base/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		A0A25D54223A582300D7FA56 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "PocketMoney/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A2CF7EF46BF94C19B59940B8 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/native-base/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
-		B8B343AE4B07428BAA160230 /* libRNFirebase.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFirebase.a; sourceTree = "<group>"; };
 		C485655AC27147D9877A5B9F /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/native-base/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
-		C5D34A33D2664926A5276F22 /* UdpSockets.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = UdpSockets.xcodeproj; path = "../node_modules/react-native-udp/ios/UdpSockets.xcodeproj"; sourceTree = "<group>"; };
 		D14A029D354946078F6E88E1 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/native-base/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
 		D7D1D2218ADA430A8F47EA9E /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/native-base/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		D9691ECE1B7F45E39DB35091 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/native-base/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
-		DC5A3A5F9D7A427593E29AF6 /* RNFirebase.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFirebase.xcodeproj; path = "../node_modules/react-native-firebase/ios/RNFirebase.xcodeproj"; sourceTree = "<group>"; };
 		E434C1C21164472495FDFDF5 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/native-base/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
-		EB3B0C16FBD645C4B0336ED2 /* libRNOS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNOS.a; sourceTree = "<group>"; };
 		EF4939FCF5877DFCFF4F31CE /* Pods-PocketMoney.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketMoney.release.xcconfig"; path = "Pods/Target Support Files/Pods-PocketMoney/Pods-PocketMoney.release.xcconfig"; sourceTree = "<group>"; };
-		F4736A2FBE7C4D35A2756005 /* libz.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		F93640E06D49589507557270 /* libPods-PocketMoney.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PocketMoney.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA04B7861C7BCA2A63FC80F /* Pods-PocketMoney-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketMoney-tvOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PocketMoney-tvOSTests/Pods-PocketMoney-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FFB8727D755A4BA99BD5BC69 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/native-base/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
@@ -457,14 +435,11 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
-				48E38A136B5E439E8357894F /* libRNFirebase.a in Frameworks */,
 				4CAA69DF9516F92364396124 /* libPods-PocketMoney.a in Frameworks */,
-				989FDA52D84E41978033B4F5 /* libRNOS.a in Frameworks */,
-				EF378E3AC5A54D978E67DD38 /* libUdpSockets.a in Frameworks */,
-				840939A4C6D245B8B42BFCB5 /* libTcpSockets.a in Frameworks */,
-				76A12B09C0CF4EADA5CA2693 /* libRealmReact.a in Frameworks */,
-				697FB39380B641B78EC2230C /* libc++.tbd in Frameworks */,
-				D023C914EDAA4B4C88045174 /* libz.tbd in Frameworks */,
+				6784370E2372490C858FCC5C /* libRNFirebase.a in Frameworks */,
+				0BD0E34FD7E646619178ECD5 /* libRealmReact.a in Frameworks */,
+				B49C600499B54847983BBF03 /* libc++.tbd in Frameworks */,
+				878087D5A06F4FAA800DF9DC /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -621,8 +596,8 @@
 				659C4A694C12B3E33502F58F /* libPods-PocketMoney-tvOS.a */,
 				260B2959459DF4903CC8E329 /* libPods-PocketMoney-tvOSTests.a */,
 				8DC2099F782D89B98608AF01 /* libPods-PocketMoneyTests.a */,
-				3C2D42BE661C480F8BA416A4 /* libc++.tbd */,
-				F4736A2FBE7C4D35A2756005 /* libz.tbd */,
+				8F179ACB20B64D21BFB29F42 /* libc++.tbd */,
+				08DF2E2772974608A2DA4632 /* libz.tbd */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -675,11 +650,8 @@
 				832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */,
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
-				DC5A3A5F9D7A427593E29AF6 /* RNFirebase.xcodeproj */,
-				52830F2AB22D48EDA9AD4E10 /* RNOS.xcodeproj */,
-				C5D34A33D2664926A5276F22 /* UdpSockets.xcodeproj */,
-				362E1E993B5B405AA03E3BDC /* TcpSockets.xcodeproj */,
-				0FA05DB161174435B0D87088 /* RealmReact.xcodeproj */,
+				2C929E3822ED4FC6B22F5E3D /* RNFirebase.xcodeproj */,
+				804A76398E9B4691A4A8AB52 /* RealmReact.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -746,32 +718,12 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		A090651E2291C13D000DD9FF /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				A09065222291C13D000DD9FF /* libRealmReact.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		A0A25D29223A4FA800D7FA56 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				B8B343AE4B07428BAA160230 /* libRNFirebase.a */,
-				EB3B0C16FBD645C4B0336ED2 /* libRNOS.a */,
-				8F8DC76CE9E944F093A87FFB /* libUdpSockets.a */,
-				4D4D7895AA1E42A59FCC109D /* libTcpSockets.a */,
-				6E6B62DA1CDF4C2B832C92AC /* libRealmReact.a */,
+				479CD033D9B34507B90FEE91 /* libRNFirebase.a */,
 			);
 			name = "Recovered References";
-			sourceTree = "<group>";
-		};
-		A0A25D4F223A4FA800D7FA56 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				A0A25D53223A4FA800D7FA56 /* libRNFirebase.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		ADBDB9201DFEBF0600ED6528 /* Products */ = {
@@ -948,14 +900,6 @@
 				{
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
-				},
-				{
-					ProductGroup = A090651E2291C13D000DD9FF /* Products */;
-					ProjectRef = 0FA05DB161174435B0D87088 /* RealmReact.xcodeproj */;
-				},
-				{
-					ProductGroup = A0A25D4F223A4FA800D7FA56 /* Products */;
-					ProjectRef = DC5A3A5F9D7A427593E29AF6 /* RNFirebase.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -1221,20 +1165,6 @@
 			remoteRef = A090651A2291C13D000DD9FF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		A09065222291C13D000DD9FF /* libRealmReact.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRealmReact.a;
-			remoteRef = A09065212291C13D000DD9FF /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		A0A25D53223A4FA800D7FA56 /* libRNFirebase.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNFirebase.a;
-			remoteRef = A0A25D52223A4FA800D7FA56 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1379,13 +1309,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-PocketMoney/Pods-PocketMoney-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/gRPCCertificates-Firestore.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/gRPC-C++/gRPCCertificates.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates-Firestore.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1401,13 +1331,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-PocketMoney-tvOS/Pods-PocketMoney-tvOS-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/gRPCCertificates-Firestore.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/gRPC-C++/gRPCCertificates.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates-Firestore.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1534,10 +1464,10 @@
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 					"$(SRCROOT)/../node_modules/react-native-os/ios",
 					"$(SRCROOT)/../node_modules/react-native-udp/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-tcp/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 					"$(SRCROOT)/../node_modules/realm/src/**",
 				);
 				INFOPLIST_FILE = PocketMoneyTests/Info.plist;
@@ -1545,10 +1475,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1569,10 +1495,10 @@
 				COPY_PHASE_STRIP = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 					"$(SRCROOT)/../node_modules/react-native-os/ios",
 					"$(SRCROOT)/../node_modules/react-native-udp/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-tcp/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 					"$(SRCROOT)/../node_modules/realm/src/**",
 				);
 				INFOPLIST_FILE = PocketMoneyTests/Info.plist;
@@ -1580,10 +1506,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1605,10 +1527,10 @@
 				DEAD_CODE_STRIPPING = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 					"$(SRCROOT)/../node_modules/react-native-os/ios",
 					"$(SRCROOT)/../node_modules/react-native-udp/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-tcp/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 					"$(SRCROOT)/../node_modules/realm/src/**",
 				);
 				INFOPLIST_FILE = PocketMoney/Info.plist;
@@ -1620,6 +1542,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yeo.pocketmoney;
 				PRODUCT_NAME = PocketMoney;
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1632,10 +1555,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 					"$(SRCROOT)/../node_modules/react-native-os/ios",
 					"$(SRCROOT)/../node_modules/react-native-udp/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-tcp/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 					"$(SRCROOT)/../node_modules/realm/src/**",
 				);
 				INFOPLIST_FILE = PocketMoney/Info.plist;
@@ -1647,6 +1570,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yeo.pocketmoney;
 				PRODUCT_NAME = PocketMoney;
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -1666,20 +1590,16 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 					"$(SRCROOT)/../node_modules/react-native-os/ios",
 					"$(SRCROOT)/../node_modules/react-native-udp/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-tcp/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 					"$(SRCROOT)/../node_modules/realm/src/**",
 				);
 				INFOPLIST_FILE = "PocketMoney-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1709,20 +1629,16 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 					"$(SRCROOT)/../node_modules/react-native-os/ios",
 					"$(SRCROOT)/../node_modules/react-native-udp/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-tcp/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 					"$(SRCROOT)/../node_modules/realm/src/**",
 				);
 				INFOPLIST_FILE = "PocketMoney-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1751,20 +1667,16 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 					"$(SRCROOT)/../node_modules/react-native-os/ios",
 					"$(SRCROOT)/../node_modules/react-native-udp/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-tcp/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 					"$(SRCROOT)/../node_modules/realm/src/**",
 				);
 				INFOPLIST_FILE = "PocketMoney-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1793,20 +1705,16 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 					"$(SRCROOT)/../node_modules/react-native-os/ios",
 					"$(SRCROOT)/../node_modules/react-native-udp/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-tcp/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 					"$(SRCROOT)/../node_modules/realm/src/**",
 				);
 				INFOPLIST_FILE = "PocketMoney-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (

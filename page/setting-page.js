@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { Header, Container, Body, Content, Icon, Fab } from 'native-base';
+import { Container, Content, Icon } from 'native-base';
 import { NavigationEvents } from 'react-navigation';
 
 import RouteName from "../constants/route-name";
 import AppStyle from '../constants/app-style';
 import StyleModal from '../components/style-modal';
 import SettingRow from '../components/setting-row';
+import Header from '../components/my-header';
 import UserModel from '../model/user-model';
 import CostModel from '../model/costs-model';
 
@@ -40,17 +41,12 @@ export default class SettingPage extends Component<Props, State> {
         <NavigationEvents
           onWillFocus={this.onWillFocus} />
         <Header
-          iosBarStyle={"light-content"}
-          androidStatusBarColor={AppStyle.mainColor}
-          style={styles.header}>
-          <TouchableOpacity
-            style={{ alignItems: "center", alignSelf: "center" }}
-            onPress={this.toLastPage}>
-            <Icon style={styles.headerLeft} name={"arrow-back"} />
-          </TouchableOpacity>
-          <Text style={styles.headerText}>設定</Text>
-          <View style={styles.headerLeft} />
-        </Header>
+          left={
+            <TouchableOpacity
+              onPress={this.toLastPage}>
+              <Icon style={styles.headerLeft} name={"arrow-back"} />
+            </TouchableOpacity>}
+          body={<Text style={styles.headerText}>設定</Text>} />
         <Content contentContainerStyle={styles.container}>
           {rows}
         </Content>
@@ -83,10 +79,11 @@ export default class SettingPage extends Component<Props, State> {
         });
         break;
       case key.logout:
-        UserModel.removeUserIdAsync()
-          .then(() => {
-            this.toSplashPage();
-          });
+        Promise.all([
+          UserModel.signOut()
+        ]).then(() => {
+          this.toSplashPage();
+        });
         break;
     }
   }
@@ -105,24 +102,14 @@ export default class SettingPage extends Component<Props, State> {
 }
 const styles = StyleSheet.create({
   a: {},
-  header: {
-    backgroundColor: AppStyle.mainColor,
-    justifyContent: "center",
-  },
   headerText: {
     fontSize: AppStyle.headerFontSize,
-    flex: 1,
-    textAlign: "center",
     color: AppStyle.accentFontColor,
-    alignItems: 'center',
-    alignSelf: 'center',
   },
   headerLeft: {
     padding: 10,
     fontSize: AppStyle.headerFontSize,
     color: AppStyle.accentFontColor,
-    alignItems: 'center',
-    alignSelf: 'center',
   },
   container: {
   },

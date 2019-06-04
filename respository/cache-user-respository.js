@@ -12,6 +12,7 @@ module.exports = {
     return AsyncStorage.getStorageItem(STORAGE_KEY.USER_ID);
   },
   saveUserId: function (id) {
+    console.log(STORAGE_KEY.USER_ID, id)
     return AsyncStorage.setStorageItem(STORAGE_KEY.USER_ID, id).then(() => id);
   },
   removeUserId: function () {

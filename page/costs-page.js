@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { Header, Container, Body, Content, Icon, Fab } from 'native-base';
+import { Container, Body, Content, Icon, Fab } from 'native-base';
 import { NavigationEvents } from 'react-navigation';
 import moment from 'moment';
 
-import RouteName from "../constants/route-name";
-import CostsModel from '../model/costs-model';
-import CostTypesModel from '../model/cost-types-model';
 import CostType from '../constants/cost-type';
 import AppStyle from '../constants/app-style';
+import RouteName from "../constants/route-name";
+import Header from '../components/my-header';
 import CostRow from '../components/cost-row';
+import CostsModel from '../model/costs-model';
+import CostTypesModel from '../model/cost-types-model';
 
 type Props = {
 
@@ -39,17 +40,11 @@ export default class CostsPage extends Component<Props, State> {
         <NavigationEvents
           onWillFocus={this.onWillFocus} />
         <Header
-          iosBarStyle={"light-content"}
-          androidStatusBarColor={AppStyle.mainColor}
-          style={styles.header}>
-          <TouchableOpacity
-            style={{ alignItems: "center", alignSelf: "center" }}
+          left={<TouchableOpacity
             onPress={this.toLastPage}>
             <Icon style={styles.headerLeft} name={"arrow-back"} />
-          </TouchableOpacity>
-          <Text style={styles.headerText}>{this.state.title}</Text>
-          <View style={styles.headerLeft} />
-        </Header>
+          </TouchableOpacity>}
+          body={<Text style={styles.headerText}>{this.state.title}</Text>} />
         <Content style={{ padding: 10 }} contentContainerStyle={styles.container}>
           {items}
         </Content>
@@ -59,7 +54,7 @@ export default class CostsPage extends Component<Props, State> {
           onPress={this.toInsertPage}>
           <Icon style={styles.fabAddContent} name={"add"} />
         </Fab>
-      </Container>
+      </Container >
     )
   }
 
@@ -104,24 +99,14 @@ export default class CostsPage extends Component<Props, State> {
 }
 const styles = StyleSheet.create({
   a: {},
-  header: {
-    backgroundColor: AppStyle.mainColor,
-    justifyContent: "center",
-  },
   headerText: {
     fontSize: AppStyle.headerFontSize,
-    flex: 1,
-    textAlign: "center",
     color: AppStyle.accentFontColor,
-    alignItems: 'center',
-    alignSelf: 'center',
   },
   headerLeft: {
     padding: 10,
     fontSize: AppStyle.headerFontSize,
     color: AppStyle.accentFontColor,
-    alignItems: 'center',
-    alignSelf: 'center',
   },
   container: {
   },

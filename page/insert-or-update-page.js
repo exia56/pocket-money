@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, ScrollView, View, TextInput, Platform, TouchableOpacity } from 'react-native';
-import { Header, Container, Body, Textarea, Icon, Button, Form, Picker, Content } from 'native-base';
+import { StyleSheet, Text, View, TextInput, Platform, TouchableOpacity } from 'react-native';
+import { Container, Textarea, Icon, Form, Picker, Content } from 'native-base';
 import { NavigationEvents } from 'react-navigation';
 import moment from 'moment';
 
-import CostType from '../constants/cost-type';
-import DatePicker from '../components/date-picker';
-import Appstyle from '../constants/app-style';
+import AppStyle from '../constants/app-style';
 
-import UserModel from '../model/user-model';
+import DatePicker from '../components/date-picker';
+import StyleModal from '../components/style-modal';
+import Header from '../components/my-header';
+
 import CostTypesModel from '../model/cost-types-model';
 import CostsModel from '../model/costs-model';
-import StyleModal from '../components/style-modal';
 import PromiseTimeout from '../helper/promise-timeout';
 
 const focusKey = {
@@ -60,17 +60,11 @@ export default class InsertOrUpdatePage extends Component<Props, State> {
         <NavigationEvents
           onWillFocus={this.onWillFocus} />
         <Header
-          iosBarStyle={"light-content"}
-          androidStatusBarColor={Appstyle.mainColor}
-          style={styles.header}>
-          <TouchableOpacity
-            style={{ alignItems: "center", alignSelf: "center" }}
+          left={<TouchableOpacity
             onPress={this.toLastPage}>
             <Icon style={styles.headerLeft} name={"arrow-back"} />
-          </TouchableOpacity>
-          <Text style={styles.headerText}>{this.state.id ? "更新" : "新增"}</Text>
-          <View style={styles.headerLeft} />
-        </Header>
+          </TouchableOpacity>}
+          body={<Text style={styles.headerText}>{this.state.id ? "更新" : "新增"}</Text>} />
         <Content
           padder
           style={styles.container}>
@@ -176,7 +170,7 @@ export default class InsertOrUpdatePage extends Component<Props, State> {
           onButtonPress={() => this.setState({ modal: false })}
           onReturnPress={() => this.setState({ modal: false })}
           onOutsidePress={() => this.setState({ modal: false })} />
-      </Container>
+      </Container >
     )
   }
 
@@ -258,24 +252,14 @@ export default class InsertOrUpdatePage extends Component<Props, State> {
   }
 }
 const styles = StyleSheet.create({
-  header: {
-    backgroundColor: Appstyle.mainColor,
-    justifyContent: "center",
-  },
   headerText: {
-    fontSize: Appstyle.headerFontSize,
-    flex: 1,
-    textAlign: "center",
-    color: Appstyle.accentFontColor,
-    alignItems: 'center',
-    alignSelf: 'center',
+    fontSize: AppStyle.headerFontSize,
+    color: AppStyle.accentFontColor,
   },
   headerLeft: {
     padding: 10,
-    fontSize: Appstyle.headerFontSize,
-    color: Appstyle.accentFontColor,
-    alignItems: 'center',
-    alignSelf: 'center',
+    fontSize: AppStyle.headerFontSize,
+    color: AppStyle.accentFontColor,
   },
   container: {
     flex: 1
@@ -291,13 +275,13 @@ const styles = StyleSheet.create({
   },
   title: {
     flex: 1,
-    fontSize: Appstyle.mainFontSize,
+    fontSize: AppStyle.mainFontSize,
     paddingVertical: 10,
   },
   valueWrapper: {
     flex: 3,
     padding: 10,
-    fontSize: Appstyle.mainFontSize,
+    fontSize: AppStyle.mainFontSize,
     borderColor: "#333333",
     borderWidth: 1,
     borderRadius: 4
@@ -308,22 +292,22 @@ const styles = StyleSheet.create({
   inputText: {
     flex: 1,
     alignSelf: "stretch",
-    fontSize: Appstyle.mainFontSize,
+    fontSize: AppStyle.mainFontSize,
     padding: 0
   },
   button: {
     paddingVertical: 10,
     borderRadius: 4,
     elevation: 4,
-    shadowColor: Appstyle.accentFontColor,
-    backgroundColor: Appstyle.mainColor,
+    shadowColor: AppStyle.accentFontColor,
+    backgroundColor: AppStyle.mainColor,
     flex: 1,
     margin: 10
   },
   buttonText: {
     textAlign: "center",
-    fontSize: Appstyle.mainFontSize,
-    color: Appstyle.accentFontColor,
+    fontSize: AppStyle.mainFontSize,
+    color: AppStyle.accentFontColor,
   },
   a: {},
 })

@@ -7,5 +7,8 @@ module.exports = {
   InsertOrUpdatePage: "InsertOrUpdatePage",
   CostsPage: "CostsPage",
   SettingPage: "SettingPage",
-  QueryPage: "QueryPage"
+  QueryPage: "QueryPage",
+
+  SignUpPage: "SignUpPage",
+  SignInPage: "SignInPage",
 }

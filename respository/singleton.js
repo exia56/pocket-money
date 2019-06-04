@@ -3,7 +3,7 @@ let singleton = {
 };
 
 function checkIsUserId(userId) {
-  return userId && userId.length === 32;
+  return userId && userId.length >= 20;
 }
 
 module.exports = {

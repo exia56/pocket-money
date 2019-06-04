@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { Header, Container, Button, Content, Icon, Fab } from 'native-base';
+import { Container, Button, Content, Icon, Fab } from 'native-base';
 import { NavigationEvents } from 'react-navigation';
 import moment from 'moment';
 
 import RouteName from "../constants/route-name";
+import AppStyle from '../constants/app-style';
+
+import Header from '../components/my-header';
+import Separator from '../components/separator';
 import DateGridView from '../components/date-grid-view';
+
 import CostsModel from "../model/costs-model";
 import Singleton from '../respository/singleton';
-import Separator from '../components/separator';
-import Appstyle from '../constants/app-style';
 
 type Props = {
 
@@ -25,7 +28,7 @@ export default class MainPage extends Component<Props, State> {
     date: moment(),
     dayArray: Array.apply(null, { length: 42 }).map((v, idx) => CostsModel.createCellData(idx, 0, 0)),
     monthly: 0,
-    fabActive: false
+    fabActive: true
   }
   render() {
     return (
@@ -33,17 +36,12 @@ export default class MainPage extends Component<Props, State> {
         <NavigationEvents
           onWillFocus={this.onWillFocus} />
         <Header
-          iosBarStyle={"light-content"}
-          androidStatusBarColor={Appstyle.mainColor}
-          style={styles.header}>
-          <View style={styles.headerLeft} />
-          <Text style={styles.headerText}>記帳咯</Text>
-          <TouchableOpacity
-            style={{ alignItems: "center", alignSelf: "center" }}
+          body={<Text style={styles.headerText}>記帳咯</Text>}
+          right={<TouchableOpacity
             onPress={this.toSettingPage}>
             <Icon style={styles.headerLeft} name={"settings"} />
-          </TouchableOpacity>
-        </Header>
+          </TouchableOpacity>}
+        />
         <Content contentContainerStyle={styles.container}>
           <DateGridView
             dayArray={this.state.dayArray}
@@ -72,23 +70,22 @@ export default class MainPage extends Component<Props, State> {
           </View>
           <Separator />
         </Content>
-        <TouchableOpacity
+        <Fab
           active={this.state.fabActive}
-          onLongPress={this.fabActive}
-          onPress={this.toInsertPage}>
-          <Fab
-            active={this.state.fabActive}
+          active={true}
+          position={"bottomRight"}>
+          <TouchableOpacity
             style={styles.fabAdd}
-            position={"bottomRight"}
-          >
+            onLongPress={this.fabActive}
+            onPress={this.toInsertPage}>
             <Icon style={styles.fabAddContent} name={"add"} />
-            <Button
-              style={{ backgroundColor: '#34A34F' }}
-              onPress={this.toQueryPage}>
-              <Icon name="search" />
-            </Button>
-          </Fab>
-        </TouchableOpacity>
+          </TouchableOpacity>
+          <Button
+            style={{ backgroundColor: '#34A34F' }}
+            onPress={this.toQueryPage}>
+            <Icon name="search" />
+          </Button>
+        </Fab>
       </Container>
     )
   }
@@ -116,8 +113,15 @@ export default class MainPage extends Component<Props, State> {
     this.props.navigation.navigate(RouteName.CostsPage, { dateStamp: item.dateStamp })
   }
 
-  fabActive = () => this.setState({ fabActive: true });
-  fabDeactive = () => this.setState({ fabActive: false });
+  fabActive = () => {
+    console.log("fabActive");
+    this.setState({ fabActive: !this.state.fabActive });
+  }
+
+  fabDeactive = () => {
+    console.log("fabDeactive")
+    this.setState({ fabActive: false });
+  }
 
   toInsertPage = () => {
     this.fabDeactive();
@@ -143,24 +147,17 @@ export default class MainPage extends Component<Props, State> {
 }
 const styles = StyleSheet.create({
   a: {},
-  header: {
-    backgroundColor: Appstyle.mainColor,
-    justifyContent: "center",
-  },
   headerText: {
-    fontSize: Appstyle.headerFontSize,
-    flex: 1,
-    textAlign: "center",
-    color: Appstyle.accentFontColor,
-    alignItems: 'center',
-    alignSelf: 'center',
+    fontSize: AppStyle.headerFontSize,
+    // textAlign: "center",
+    color: AppStyle.accentFontColor,
+    // alignItems: 'center',
   },
   headerLeft: {
     padding: 10,
-    fontSize: Appstyle.headerFontSize,
-    color: Appstyle.accentFontColor,
-    alignItems: 'center',
-    alignSelf: 'center',
+    fontSize: AppStyle.headerFontSize,
+    color: AppStyle.accentFontColor,
+    left: 0,
   },
   container: {
     paddingBottom: 100
@@ -175,12 +172,12 @@ const styles = StyleSheet.create({
     textAlign: "center",
     alignSelf: "center",
     fontSize: 40,
-    color: Appstyle.accentColor,
+    color: AppStyle.accentColor,
   },
   monthTitle: {
     flex: 3,
     textAlign: "center",
-    fontSize: Appstyle.headerFontSize + 6
+    fontSize: AppStyle.headerFontSize + 6
   },
   monthlySection: {
     padding: 5,
@@ -188,17 +185,20 @@ const styles = StyleSheet.create({
     alignItems: "flex-start"
   },
   monthlyTitle: {
-    fontSize: Appstyle.subFontSize,
-    color: Appstyle.mainColor
+    fontSize: AppStyle.subFontSize,
+    color: AppStyle.mainColor
   },
   monthlyCost: {
-    fontSize: Appstyle.headerFontSize
+    fontSize: AppStyle.headerFontSize
   },
   fabAdd: {
-    backgroundColor: Appstyle.accentColor,
+    flex: 1,
+    alignSelf: "stretch",
+    borderRadius: 1000,
     justifyContent: "center",
     alignItems: "center"
   },
   fabAddContent: {
+    color: "#ffffff"
   }
 })
