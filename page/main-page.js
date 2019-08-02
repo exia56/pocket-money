@@ -10,27 +10,32 @@ import AppStyle from '../constants/app-style';
 import Header from '../components/my-header';
 import Separator from '../components/separator';
 import DateGridView from '../components/date-grid-view';
+import HorizontalDrag from '../components/horizontal-drag';
 
 import CostsModel from "../model/costs-model";
 import Singleton from '../respository/singleton';
-
 type Props = {
 
 };
 type State = {
-  date: Moment,
-  dayArray: Array,
+  middleDate: Moment,
+  dateGridViews: Array,
   monthly: Number,
   fabActive: Boolean
 };
+
 export default class MainPage extends Component<Props, State> {
   state = {
-    date: moment(),
-    dayArray: Array.apply(null, { length: 42 }).map((v, idx) => CostsModel.createCellData(idx, 0, 0)),
-    monthly: 0,
+    middleDate: moment(),
+    monthlyCosts: [undefined, undefined, undefined],
+    dateGridViews: [undefined, undefined, undefined],
     fabActive: true
   }
+
+  horizontalDrag = React.createRef()
+
   render() {
+    const { monthlyCosts } = this.state;
     return (
       <Container>
         <NavigationEvents
@@ -43,9 +48,12 @@ export default class MainPage extends Component<Props, State> {
           </TouchableOpacity>}
         />
         <Content contentContainerStyle={styles.container}>
-          <DateGridView
-            dayArray={this.state.dayArray}
-            onCellPress={this.onCellPress} />
+          <HorizontalDrag
+            horizontal={true}
+            ref={this.horizontalDrag}
+            data={this.state.dateGridViews}
+            onSwipe={this.onSwipe}
+            onSwipeEnd={this.onSwipeEnd} />
           <View style={styles.row}>
             <TouchableOpacity
               style={{ flex: 1 }}
@@ -55,7 +63,7 @@ export default class MainPage extends Component<Props, State> {
             <TouchableOpacity
               style={{ flex: 3 }}
               onPress={this.thisMonth}>
-              <Text style={styles.monthTitle}>{this.state.date.format("YYYY-MM")}</Text>
+              <Text style={styles.monthTitle}>{this.state.middleDate.format("YYYY-MM")}</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={{ flex: 1 }}
@@ -66,7 +74,7 @@ export default class MainPage extends Component<Props, State> {
           <Separator />
           <View style={styles.monthlySection}>
             <Text style={styles.monthlyTitle}>月花費:</Text>
-            <Text style={styles.monthlyCost}>{this.state.monthly}</Text>
+            <Text style={styles.monthlyCost}>{monthlyCosts[1]}</Text>
           </View>
           <Separator />
         </Content>
@@ -91,22 +99,62 @@ export default class MainPage extends Component<Props, State> {
   }
 
   thisMonth = () => {
-    this.generateDayArray(moment());
+    const now = moment();
+    CostsModel.getDateArrayAsync(now)
+      .then(({ daysArray, monthly }) => {
+        const { dateGridViews, monthlyCosts } = this.state;
+        const dateGridView = this.generateDateGridView(daysArray);
+        dateGridViews[1] = dateGridView;
+        monthlyCosts[1] = monthly;
+        this.setState({ dateGridViews, monthlyCosts, middleDate: now });
+      });
   }
 
   previousMonth = () => {
-    this.generateDayArray(this.state.date.clone().add(-1, "month"));
+    this.horizontalDrag.current.previous();
   }
 
   nextMonth = () => {
-    this.generateDayArray(this.state.date.clone().add(1, "month"))
+    this.horizontalDrag.current.next();
   }
 
-  generateDayArray = (date) => {
-    CostsModel.getDateArrayAsync(date)
+  generateDateGridView = (daysArray) => {
+    return (
+      <DateGridView
+        dayArray={daysArray}
+        onCellPress={this.onCellPress} />
+    )
+  }
+
+  onSwipe = async (offset) => {
+    console.log(offset)
+    const date = this.state.middleDate.clone().add(offset, "month");
+    await CostsModel.getDateArrayAsync(date)
       .then(({ daysArray, monthly }) => {
-        this.setState({ dayArray: daysArray, date, monthly });
-      }).catch(res => { console.log(res) });
+        const { dateGridViews, monthlyCosts } = this.state;
+        monthlyCosts[1 + offset] = monthly;
+        dateGridViews[1 + offset] = this.generateDateGridView(daysArray);
+        console.log(1 + offset, offset, dateGridViews, monthlyCosts);
+        this.setState({ dateGridViews, monthlyCosts });
+      });
+  }
+
+  onSwipeEnd = async (offset) => {
+    const { dateGridViews, monthlyCosts, middleDate } = this.state;
+    console.log(1 + offset, offset, dateGridViews, monthlyCosts);
+    dateGridViews[1] = dateGridViews[1 + offset];
+    dateGridViews[0] = undefined;
+    dateGridViews[2] = undefined;
+    monthlyCosts[1] = monthlyCosts[1 + offset];
+    console.log(1 + offset, offset, dateGridViews, monthlyCosts);
+    await new Promise((resolve) => {
+      this.setState({
+        dateGridViews,
+        monthlyCosts,
+        middleDate: middleDate.clone().add(offset, 'month')
+      }, resolve);
+    })
+
   }
 
   onCellPress = (item) => {
@@ -114,12 +162,10 @@ export default class MainPage extends Component<Props, State> {
   }
 
   fabActive = () => {
-    console.log("fabActive");
     this.setState({ fabActive: !this.state.fabActive });
   }
 
   fabDeactive = () => {
-    console.log("fabDeactive")
     this.setState({ fabActive: false });
   }
 
@@ -140,9 +186,8 @@ export default class MainPage extends Component<Props, State> {
   onWillFocus = () => {
     let isSetUserId = Singleton.isSetUserId();
     if (isSetUserId) {
-      this.generateDayArray(this.state.date);
+      this.onSwipe(0);
     } else this.props.navigation.navigate(RouteName.ROUTE_SPLASH);
-
   }
 }
 const styles = StyleSheet.create({
@@ -160,7 +205,7 @@ const styles = StyleSheet.create({
     left: 0,
   },
   container: {
-    paddingBottom: 100
+    paddingBottom: 100,
   },
   row: {
     flexDirection: "row",

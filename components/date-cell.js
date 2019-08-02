@@ -58,6 +58,7 @@ const styles = StyleSheet.create({
     padding: 5
   },
   day: {
+    color: '#222',
     fontSize: 16,
     marginBottom: 5
   },
@@ -65,7 +66,6 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
     textAlign: "right",
     fontSize: 14,
-    lineHeight: 14
   },
   weekend: {
     color: "#ff0000"

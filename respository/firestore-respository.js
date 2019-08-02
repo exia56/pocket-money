@@ -100,7 +100,6 @@ module.exports = {
     let collection = firebase.firestore().collection(collectionPath);
     if (data.id) {
       const { id, ...d } = data;
-      console.log(data, collectionPath);
       return collection.doc(id).set(d);
     } else
       return collection.add(data);

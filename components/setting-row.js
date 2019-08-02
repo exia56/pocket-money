@@ -12,7 +12,7 @@ type Props = {
 export default class SettingRow extends Component<Props> {
   render() {
     return (
-      <TouchableOpacity style={{ alignSelf: "stretch" }} onPress={this.onPress}>
+      <TouchableOpacity style={{ alignSelf: "stretch" }} disabled={!this.props.onPress} onPress={this.onPress}>
         <View style={styles.settingRow}>
           <Text style={styles.rowTitle}>
             {this.props.caption}

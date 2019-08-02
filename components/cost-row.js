@@ -30,7 +30,9 @@ export default class CostRow extends Component<Props, State> {
       <TouchableOpacity style={styles.container} onPress={this.onPress}>
         <View style={styles.left}>
           <Text style={styles.type}>{typeStr}</Text>
-          <Text style={styles.detail}>{detail}</Text>
+          {detail ?
+            <Text style={styles.detail}>{detail}</Text> :
+            undefined}
         </View>
         <View style={styles.right}>
           <Text style={styles.amount}>{amount}</Text>
